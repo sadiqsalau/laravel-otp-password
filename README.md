@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This package makes it a breeze implementing password reset using the `[sadiqsalau/laravel-otp](https://github.com/sadiqsalau/laravel-otp)` package.
+This package makes it a breeze implementing password reset using the [sadiqsalau/laravel-otp](https://github.com/sadiqsalau/laravel-otp) package.
 
 ## Installation
 
-Install via composer: This package depends on `sadiqsalau/laravel-otp`, you need to install the both of them.
+Install via composer: This package depends on [sadiqsalau/laravel-otp](https://github.com/sadiqsalau/laravel-otp), you need to install the both of them.
 
 ```bash
 composer require sadiqsalau/laravel-otp sadiqsalau/laravel-otp-password

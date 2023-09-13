@@ -1,0 +1,29 @@
+{
+    "name": "sadiqsalau/laravel-otp-password",
+    "description": "OTP Password Reset Package for Laravel",
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9|^10",
+        "sadiqsalau/laravel-otp": "^1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SadiqSalau\\LaravelOtpPassword\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sadiq Salau",
+            "email": "sadiqsalau888@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SadiqSalau\\LaravelOtpPassword\\OtpPasswordServiceProvider"
+            ]
+        }
+    }
+}

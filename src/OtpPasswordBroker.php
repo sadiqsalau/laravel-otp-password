@@ -75,7 +75,7 @@ class OtpPasswordBroker implements PasswordBrokerContract
 
         $callback($user, $password);
 
-        $this->clearSession($user);
+        $this->clearSession($user->getEmailForPasswordReset());
 
         return static::PASSWORD_RESET;
     }
@@ -111,7 +111,7 @@ class OtpPasswordBroker implements PasswordBrokerContract
             return static::INVALID_USER;
         }
 
-        if (!$this->sessionExists($user)) {
+        if (!$this->sessionExists($user->getEmailForPasswordReset())) {
             return static::INVALID_SESSION;
         }
 
@@ -137,14 +137,14 @@ class OtpPasswordBroker implements PasswordBrokerContract
     /**
      * Checks if password reset session exists and hasn't expired
      *
-     * @param CanResetPassword $user
+     * @param string $email
      * @return bool
      */
-    protected function sessionExists($user)
+    public function sessionExists($email)
     {
         return Cache::has(
             $this->getStorageKey(
-                $user->getEmailForPasswordReset()
+                $email
             )
         );
     }
@@ -152,14 +152,14 @@ class OtpPasswordBroker implements PasswordBrokerContract
     /**
      * Clear password reset session
      *
-     * @param CanResetPassword $user
+     * @param string $email
      * @return void
      */
-    protected function clearSession($user)
+    public function clearSession($email)
     {
         Cache::forget(
             $this->getStorageKey(
-                $user->getEmailForPasswordReset()
+                $email
             )
         );
     }
